@@ -61,13 +61,42 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+        // PRD specific colors, especially if directly referenced in utility classes
+        secondaryText: '#878A99', // PRD designSystem.colorPalette.secondaryText (#878A99), used by text-secondaryText
+        // Other PRD colors are mapped via CSS variables above (e.g., accentBlue to primary)
+        // If direct classes like `bg-accentBlue` were needed, they'd be added here:
+        // accentBlue: '#299CDB', 
+        // accentRed: '#FF6F61',
+        // accentGreen: '#60D394',
 			},
 			borderRadius: {
+        // The --radius CSS variable is updated to 0.375rem (PRD's rounded-md).
+        // This existing Shadcn structure maps Tailwind's -lg, -md, -sm to var(--radius) and its variants.
+        // So, `rounded-lg` will apply 0.375rem.
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
+      fontFamily: {
+        sans: [
+          'Nunito', // PRD designSystem.typography.primaryFont
+          'ui-sans-serif',
+          'system-ui',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"Segoe UI"',
+          'Roboto',
+          '"Helvetica Neue"',
+          'Arial',
+          '"Noto Sans"',
+          'sans-serif',
+          '"Apple Color Emoji"',
+          '"Segoe UI Emoji"',
+          '"Segoe UI Symbol"',
+          '"Noto Color Emoji"',
+        ],
+      },
 			keyframes: {
 				'accordion-down': {
 					from: {
